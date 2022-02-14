@@ -21,19 +21,21 @@ public class Linea {
 	}
 	
 	//Get & Set
-	public Punto getPuntoA() {
-		return puntoA;
+	private Punto getPuntoA() {
+		Punto resultado = new Punto(puntoA.getX(),puntoB.getY());
+		return resultado;
 	}
 
-	public void setPuntoA(Punto puntoA) {
+	private void setPuntoA(Punto puntoA) {
 		this.puntoA = puntoA;
 	}
 
-	public Punto getPuntoB() {
-		return puntoB;
+	private Punto getPuntoB() {
+		Punto resultado = new Punto(puntoA.getX(),puntoB.getY());
+		return resultado;
 	}
 
-	public void setPuntoB(Punto puntoB) {
+	private void setPuntoB(Punto puntoB) {
 		this.puntoB = puntoB;
 	}
 
@@ -52,7 +54,7 @@ public class Linea {
 		if (getClass() != obj.getClass())
 			return false;
 		Linea other = (Linea) obj;
-		return Objects.equals(puntoA, other.puntoA) && Objects.equals(puntoB, other.puntoB);
+		return (Objects.equals(puntoA, other.puntoA) && Objects.equals(puntoB, other.puntoB)) ||(Objects.equals(puntoB, other.puntoA) && Objects.equals(puntoA, other.puntoB));
 	}
 	
 	//Metodos
